@@ -26,7 +26,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "build": "tsc --project ./tsconfig.json"
+    "build": "tsc --project ./tsconfig.json",
+    "publish": "npm publish --access public"
   },
   "dependencies": {
     "react": "18.0.0",
