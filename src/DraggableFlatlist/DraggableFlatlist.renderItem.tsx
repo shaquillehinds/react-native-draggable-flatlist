@@ -9,7 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import threads from './DraggableFlatlist.threads';
-import immutableMove from '@utils/immutableMove';
+import immutableMove from '../utils/immutableMove';
 
 export default function DraggableFlatlistItem<T>(
   props: PropsWithChildren<DraggableFlatlistItemProps<T>>,

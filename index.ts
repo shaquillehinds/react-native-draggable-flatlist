@@ -1,3 +1,3 @@
-import DraggableFlatlist from 'src/DraggableFlatlist';
+import DraggableFlatlist from './src';
 
 export default DraggableFlatlist;
