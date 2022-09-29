@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "main": "lib/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "types": "lib/index.d.ts",
   "files": [
@@ -27,7 +27,7 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "build": "tsc --project ./tsconfig.json",
-    "publish": "npm publish --access public"
+    "npm-pub": "npm publish --access public"
   },
   "dependencies": {
     "react": "18.0.0",
