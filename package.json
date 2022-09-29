@@ -1,5 +1,5 @@
 {
-  "name": "react-native-draggable-flatlist",
+  "name": "@shaquillehinds/react-native-draggable-flatlist",
   "description": "Simple wapper wapper around react native's flatlist that allows draggable items",
   "repository": {
     "type": "git",
