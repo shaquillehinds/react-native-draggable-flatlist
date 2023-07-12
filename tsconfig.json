@@ -6,6 +6,7 @@
     "outDir": "./lib",
     /* Completeness */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
+    "module":"ESNext",
     "baseUrl": ".",
     "declaration": true,
     "noEmit": false,

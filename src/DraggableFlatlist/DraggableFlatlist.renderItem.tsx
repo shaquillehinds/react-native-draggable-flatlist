@@ -16,6 +16,25 @@ export default function DraggableFlatlistItem<T>(
 ) {
   const itemSharedValue = useSharedValue(0);
 
+  const onUpdateJS = (movedBy: number) => {
+    threads.swapIndexOnJS({
+      movedBy,
+      activeIndex: props.activeIndex!,
+      setSwapIndex: props.setSwapIndex,
+    });
+  };
+
+  const onEndJS = () =>
+    threads.updateListOnJS({
+      setSwapIndex: props.setSwapIndex,
+      setActiveIndex: props.setActiveIndex,
+      list: props.list,
+      setList: props.setList,
+      immutableMove,
+      from: props.activeIndex!,
+      to: props.swapIndexValues.value.curr + props.activeIndex!,
+    });
+
   useEffect(() => {
     if (props.swapIndex === undefined) {
       itemSharedValue.value = 0;
@@ -64,26 +83,14 @@ export default function DraggableFlatlistItem<T>(
           prev: props.swapIndexValues.value.curr,
         };
 
-        runOnJS(threads.swapIndexOnJS)({
-          movedBy,
-          activeIndex: props.activeIndex,
-          setSwapIndex: props.setSwapIndex,
-        });
+        runOnJS(onUpdateJS)(movedBy);
       }
     })
     .onEnd(() => {
       if (props.activeIndex === undefined) return;
 
       if (props.swapIndexValues.value.curr !== 0) {
-        runOnJS(threads.updateListOnJS)({
-          setSwapIndex: props.setSwapIndex,
-          setActiveIndex: props.setActiveIndex,
-          list: props.list,
-          setList: props.setList,
-          immutableMove,
-          from: props.activeIndex,
-          to: props.swapIndexValues.value.curr + props.activeIndex,
-        });
+        runOnJS(onEndJS)();
       }
       runOnJS(threads.resetActiveTranslateY)({
         activeItemTranslateY: props.activeItemTranslateY,
